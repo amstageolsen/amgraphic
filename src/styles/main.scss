@@ -57,24 +57,20 @@ a:hover {
 	margin: auto;
 	z-index: 6;
 	position: absolute;
-	top: 50%;  /* position the top  edge of the element at the middle of the parent */
-    //left: 50%; /* position the left edge of the element at the middle of the parent */
+	top: 50%;
 	transition: transform 300ms, left 300ms, opacity 400ms;
     transform: translate(0%, -50%);
 	transition-delay: 300ms;
 	opacity: 1;
 	width: 100vw;
 	&.hidden {
-		//display: none;
 		transition: opacity 400ms;
 		opacity: 0;
 		transition-delay: 0ms;
 	}
 	&.sticky {
-		//transform: translate(0, -50%);
 		transition-delay: 0ms;
 		li {
-			left: 50%;
 			left: calc(-50% - -95px);
 			@for $i from 1 to 5 {
 				&:nth-child(#{$i}) {

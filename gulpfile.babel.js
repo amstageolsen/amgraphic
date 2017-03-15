@@ -80,7 +80,7 @@ function deploy() {
 	var ghpages = require('gh-pages');
 	var path = require('path');
 
-	ghpages.publish(path.join(__dirname, 'dest'), function(err) { ... });
+	ghpages.publish(path.join(__dirname, 'dest'), function(err) { console.error(err); });
 }
 
 const dev = gulp.series(clean, gulp.parallel(styles, scripts, html, images), gulp.parallel(bs, watch));
