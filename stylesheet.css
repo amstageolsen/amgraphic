@@ -31,6 +31,13 @@ main {
     transform: rotate(4deg) scale(1.4);
 }
 
+.types {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    margin-top: 70px;
+}
+
 .type {
     text-align: center;
     width: 210px;
