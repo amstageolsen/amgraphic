@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'impact_labelregular';
+    src: url('Impact_Label-webfont.eot');
+    src: url('Impact_Label-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Impact_Label-webfont.woff2') format('woff2'),
+         url('Impact_Label-webfont.woff') format('woff'),
+         url('Impact_Label-webfont.ttf') format('truetype'),
+         url('Impact_Label-webfont.svg#impact_labelregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.logo {
+    margin: 30px;
+}
+
+.about-me-link {
+    font-family: 'impact_labelregular';
+    color: #000;
+    float: right;
+}
+
+.type {
+    text-align: center;
+    width: 210px;
+    float: left;
+    margin-left: 33px;
+}
+
+.type a {
+    font-family: 'impact_labelregular';
+    color: #000;
+    font-size: 18px;
+}
+
+.type img {
+    font-family: 'impact_labelregular';
+    color: #000;
+    font-size: 18px;
+    border: 1px solid #4b4b4b;
+}
