@@ -13,12 +13,22 @@
 
 .logo {
     margin: 30px;
+    display: block;
+}
+
+main {
+    padding: 20px;
 }
 
 .about-me-link {
     font-family: 'impact_labelregular';
     color: #000;
     float: right;
+    margin-top: -87px;
+    font-size: 18px;
+}
+.about-me-link:hover {
+    transform: rotate(4deg) scale(1.4);
 }
 
 .type {
@@ -39,4 +49,40 @@
     color: #000;
     font-size: 18px;
     border: 1px solid #4b4b4b;
+}
+
+.type--gd p {
+    transform: rotate(-3deg);
+}
+.type--gd:hover p {
+    transform: rotate(-5deg) scale(1.4);
+}
+
+.type--ty p {
+    transform: rotate(-2deg);
+}
+.type--ty:hover p {
+    transform: rotate(4deg) scale(1.4);
+}
+
+.type--gb p.first {
+    transform: rotate(-2deg);
+}
+.type--gb p.second {
+    transform: rotate(6deg);
+    margin-top: -8px;
+}
+.type--gb:hover p {
+    transform: rotate(-5deg) scale(1.4);
+}
+
+.type--gp p.first {
+    transform: rotate(-3deg);
+}
+.type--gp p.second {
+    transform: rotate(6deg);
+    margin-top: -8px;
+}
+.type--gp:hover p {
+    transform: rotate(-5deg) scale(1.4);
 }
