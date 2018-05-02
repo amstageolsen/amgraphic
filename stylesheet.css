@@ -18,6 +18,8 @@
 
 main {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about-me-link {
@@ -26,6 +28,7 @@ main {
     float: right;
     margin-top: -87px;
     font-size: 18px;
+    transform: rotate(-3deg);
 }
 .about-me-link:hover {
     transform: rotate(4deg) scale(1.4);
@@ -62,21 +65,21 @@ main {
     transform: rotate(-3deg);
 }
 .type--gd:hover p {
-    transform: rotate(-5deg) scale(1.4);
+    transform: rotate(-6deg) scale(1.4);
 }
 
 .type--ty p {
-    transform: rotate(-2deg);
+    transform: rotate(4deg);
 }
 .type--ty:hover p {
     transform: rotate(4deg) scale(1.4);
 }
 
 .type--gb p.first {
-    transform: rotate(-2deg);
+    transform: rotate(2deg);
 }
 .type--gb p.second {
-    transform: rotate(6deg);
+    transform: rotate(-4deg);
     margin-top: -8px;
 }
 .type--gb:hover p {
@@ -87,9 +90,12 @@ main {
     transform: rotate(-3deg);
 }
 .type--gp p.second {
-    transform: rotate(6deg);
+    transform: rotate(3deg);
     margin-top: -8px;
 }
-.type--gp:hover p {
+.type--gp:hover p.first {
     transform: rotate(-5deg) scale(1.4);
+}
+.type--gp:hover p.second {
+    transform: rotate(5deg) scale(1.4);
 }
