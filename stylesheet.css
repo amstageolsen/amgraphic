@@ -158,9 +158,12 @@ Rotate Card
         color: #FFF;
         -webkit-transform: rotateX(180deg);
         transform: rotateX(180deg);
-    }
-    .card .back a {
-        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 35px;
+        box-sizing: border-box;
     }
 
 label:hover .card {
@@ -188,11 +191,14 @@ label:hover :checked + .card {
 .card-link {
     display: block;
     margin: 0 auto;
-    padding: 5px;
+    padding: 12px;
     border: 1px solid #333;
-    margin: 20px;
+    text-decoration: none;
+    background: #000;
+    color: #fff;
 }
 
 .card-link:hover {
     background: rgba(50,50,50,.2);
+    color: #000;
 }
