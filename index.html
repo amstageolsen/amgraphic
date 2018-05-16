@@ -10,42 +10,86 @@
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
 
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="/stylesheet.css">
     </head>
     <body>
         <main>
-            <a class="logo" href="/">
-                <img width="125" src="/logo.svg" />
-            </a>
-    
-            <a class="about-me-link" href="#about-me">Om mig</a>
+            <header>
+                <a class="logo" href="/">
+                    <img width="125" src="/logo.svg" />
+                </a>
+        
+                <a class="about-me-link" href="/om-mig/">Om mig</a>        
+            </header>
+
+            <img class="intro" src="/portfolio-artwork-min.png" />
     
             <div class="types">
                 <div class="type type--gd">
-                    <a href="#GD">
-                        <img width="210" src="/GD.png" />
-                        <p>Grafisk Design</p>
-                    </a>
+              
+                    <label class="card-rotate">
+                        <input type="checkbox" />
+                        <div class="card">
+                            <div class="front">
+                                <img width="210" src="/GD.png" />
+                            </div>
+                            <div class="back">
+                                <a class="card-link" href="#">Beskrivelse</a>
+                                <a class="card-link" href="#">Produkter</a>
+                            </div>
+                        </div>
+                        <p class="card-title">Grafisk Design</p>
+                    </label>
+
                 </div>
                 <div class="type type--ty">
-                    <a href="#TY">
-                        <img width="210" src="/TY.png" />
-                        <p>TYPOGRAFI</p>
-                    </a>
+
+                    <label class="card-rotate">
+                        <input type="checkbox" />
+                        <div class="card">
+                            <div class="front">
+                                <img width="210" src="/TY.png" />
+                            </div>
+                            <div class="back">
+                                <a class="card-link" href="#">Beskrivelse</a>
+                                <a class="card-link" href="#">Produkter</a>
+                            </div>
+                        </div>
+                        <p class="card-title">TYPOGRAFI</p>
+                    </label>
+
                 </div>
                 <div class="type type--gb">
-                    <a href="#GB">
-                        <img width="210" src="/GB.png" />
-                        <p class="first">GRAFIK</p>
-                        <p class="second">Billedebehandling</p>
-                    </a>
+                    <label class="card-rotate">
+                        <input type="checkbox" />
+                        <div class="card">
+                            <div class="front">
+                                <img width="210" src="/TY.png" />
+                            </div>
+                            <div class="back">
+                                <a class="card-link" href="#">Beskrivelse</a>
+                                <a class="card-link" href="#">Produkter</a>
+                            </div>
+                        </div>
+                        <p class="card-title first">GRAFIK</p>
+                        <p class="card-title second">Billedebehandling</p>
+                    </label>
                 </div>
                 <div class="type type--gp">
-                    <a href="#GP">
-                        <img width="210" src="/GP.png" />
-                        <p class="first">GRAFISK</p>
-                        <p class="second">Produktionsforståelse</p>
-                    </a>
+                    <label class="card-rotate">
+                        <input type="checkbox" />
+                        <div class="card">
+                            <div class="front">
+                                <img width="210" src="/TY.png" />
+                            </div>
+                            <div class="back">
+                                <a class="card-link" href="#">Beskrivelse</a>
+                                <a class="card-link" href="#">Produkter</a>
+                            </div>
+                        </div>
+                        <p class="card-title first">GRAFISK</p>
+                        <p class="card-title second">Produktionsforståelse</p>
+                    </label>
                 </div>
             </div>
         </main>
