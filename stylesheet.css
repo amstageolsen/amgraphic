@@ -19,11 +19,13 @@ body {
     background: url('/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body.om-mig {
     background: url('/om-mig_baggrund.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .logo {
@@ -193,4 +195,24 @@ label:hover :checked + .card {
 .card-link:hover {
     background: rgba(50,50,50,.2);
     color: #000;
+}
+
+.om-mig-text {
+    padding: 10% 0 0 30%;
+    line-height: 28px;
+    font-size: 21px;
+}
+
+dl.resume {
+
+}
+
+dl.resume dt {
+    float: left;
+    clear: left;
+    font-weight: bold;
+}
+
+dl.resume dd {
+    float: left;
 }
