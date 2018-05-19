@@ -19,14 +19,21 @@ body {
     background: url('/desk.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;  
     font-family: 'Roboto', sans-serif;
 }
 
 body.om-mig {
-    background: url('/om-mig_baggrund.jpg');
+    background-image: url('/om-mig_baggrund.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media screen and (max-width: 992px) {
+    body.om-mig {
+        background-image: url('/desk.jpg');
+    }
+  }
 
 .logo {
     margin: 30px 0;
@@ -48,6 +55,13 @@ header {
     float: left;
 }
 
+@media screen and (max-width: 992px) {
+    .intro {
+      max-width: 100%;
+      float: none;
+    }
+  }
+
 .about-me-link {
     font-family: 'impact_labelregular';
     color: #000;
@@ -68,6 +82,13 @@ header {
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 980px) {
+    .types {
+        width: 80%;
+        margin: 50px auto;
+    }
+  }
+
 .type {
     text-align: center;
     width: 210px;
@@ -75,6 +96,12 @@ header {
     margin-left: 33px;
     height: 300px;
 }
+
+@media screen and (max-width: 700px) {
+    .type {
+      margin-left: 0;
+    }
+  }
 
 .type .card-title {
     font-family: 'impact_labelregular';
@@ -198,11 +225,19 @@ label:hover :checked + .card {
 }
 
 .om-mig-text {
-    padding: 10% 0 0 36%;
+    padding: 0% 0 0 55%;
     line-height: 28px;
     font-size: 21px;
     text-shadow: 0 0 5px #fff;
+    overflow: hidden;
 }
+
+@media screen and (max-width: 992px) {
+    .om-mig-text {
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+  }
 
 dl.resume {
 
