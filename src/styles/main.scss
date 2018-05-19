@@ -6,7 +6,6 @@ body {
 	font-family: 'Roboto', sans-serif;
 	cursor: url(/images/cursor-close.png) 3 10, auto;
 }
-
 a:hover {
 	cursor: url(/images/cursor-open.png) 3 10, auto;
 }
@@ -46,8 +45,51 @@ a:hover {
 		width: 40px;
 	}
 	&:hover {
+		padding-top: 20px;
 		bottom: 30px;
 		opacity: 1;
+	}
+}
+
+.animation-wrapper {
+	position: relative;
+	h1 {
+		color: #000;
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff;
+	}
+	.animation-paths {
+		position: absolute; // path lægger sig oven på teksten
+		height: 105px;
+		overflow: visible; // ikke skærer bund af
+		top: 36%; // brugt inspect til at finde den præcise højde
+		left: 11px;
+		.header-path {
+			fill: none; // ellers kommer der fill på SVG paths
+			stroke: #fff;
+			stroke-width: 1.5;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			stroke-dasharray: 1100; // https://css-tricks.com/svg-line-animation-works/ en path er én lang dash (bliver animeret via dashes) R er længst.
+			stroke-dashoffset: 1100; // den dækker dash-længden, så det ligner figuren ikke er der
+			animation: sketch-effect 300ms linear normal forwards 1; // hvor lang tid det tager at animere det længste bogstav, "forwards" bruges så det endelige stadie forbliver som animationen ender
+			@for $i from 2 to 20 { // @for er SASS syntax som looper, $i er index
+				&:nth-child(#{$i}) { // nth-child tilføjer animation delay ud fra rækkefølgen af paths
+					animation-delay: ($i - 1) * 150ms; // 150ms delay på hver path
+				}
+			}
+		}
+	}
+	@keyframes sketch-effect { // animation starter fra 1100 til 0
+		from {
+			stroke-dashoffset: 1100;
+		}
+		to {
+    		stroke-dashoffset: 0;
+  		}
 	}
 }
 
@@ -59,17 +101,22 @@ a:hover {
 	position: absolute;
 	top: 50%;
 	transition: transform 300ms, left 300ms, opacity 400ms;
-    transform: translate(0%, -50%);
+	transform: translate(0%, -50%);
 	transition-delay: 300ms;
 	opacity: 1;
 	width: 100vw;
+	pointer-events: none;
 	&.hidden {
 		transition: opacity 400ms;
 		opacity: 0;
 		transition-delay: 0ms;
+		li {
+			pointer-events: none;
+		}
 	}
 	&.sticky {
 		transition-delay: 0ms;
+		//width: auto;
 		li {
 			left: calc(-50% - -95px);
 			@for $i from 1 to 5 {
@@ -84,6 +131,7 @@ a:hover {
 		margin: 0;
 		padding: 0;
 		li {
+			pointer-events: all;
 			width: 190px;
 			margin: auto;
 			left: 0;
@@ -140,8 +188,12 @@ a:hover {
 	bottom: 50px;
 	right: 50px;
 	opacity: 0.8;
+	z-index: 10;
 	&:hover {
 		opacity: 1;
+	}
+	&.hidden {
+		display: none;
 	}
 }
 .pages {
@@ -150,6 +202,88 @@ a:hover {
 .page {
 	height: 100vh;
 	position: relative;
+	&:after {
+		background: linear-gradient(to right, black 75%, transparent 100%);
+		content: " ";
+		display: block;
+		height: 100000vh;
+		position: absolute;
+		width: 250px;
+		top: 0;
+		left: 0;
+	}
+
+	&__scroll-arrow__left,
+	&__scroll-arrow__right {
+		width: 50px;
+		//background: #fff;
+		margin: 0;
+		padding: 0;
+	}
+	&__scroll-arrow__right {
+		right: 0;
+		position: absolute;
+		height: 100vh;
+		z-index: 99;
+		cursor: e-resize;
+	}
+	&__scroll-arrow__left {
+		left: 200px; // After menu
+		position: absolute;
+		height: 100vh;
+		z-index: 99;
+		cursor: w-resize;
+	}
+	&-scroll-wrapper {
+		height: 100vh;
+		width: 100vw;
+	}
+	&-scroll {
+		margin-left: 200px;
+		width: 10000px; // Skal sættes med javascript
+		flex-direction: row;
+		display: flex;
+		align-items: left;
+		justify-content: left;
+		//transition: transform 200ms;
+	}
+	.arrow {
+		left: 50%;
+		bottom: 20px;
+		svg {
+			padding-top: 10px;
+			width: 25px;
+		}
+		&:hover {
+			padding-top: 20px;
+			bottom: 10px;
+			opacity: 1;
+		}
+	}
+	&__section {
+		//width: calc(100vw - 200px);
+		height: 100vh;
+		align-items: left;
+		justify-content: left;
+		&--intro {
+			min-width: 100vw;
+			max-width: 100vw;
+		}
+		&--codepen {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 400px;
+		}
+		.step-text {
+			font-family: 'Shadows Into Light', cursive;
+			top: 40%;
+			position: relative;
+			transform: rotate(-15deg);
+			font-size: 26px;
+			padding: 0 20px 0 120px;
+		}
+	}
 	&.frontpage {
 		display: flex;
 		align-items: center;
@@ -160,14 +294,29 @@ a:hover {
 			text-align: center;
 			opacity: 0.8;
 		}
+		&:after {
+			display: none;
+		}
 	}
 	&.contact-me {
-		background: url('/images/Me.jpg');
-		background-position: right;
-		background-repeat: no-repeat;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		opacity: 0.8;
+		.background-image {
+			background: url(/images/Me.jpg);
+			background-position: 10%;
+			background-repeat: no-repeat;
+			float: right;
+			height: 100vh;
+			width: 30%;
+			position: absolute;
+			right: 0;
+			background-size: cover;
+		}
+		&:after {
+			display: none;
+		}
 	}
 	&.menu {
 		display: flex;
@@ -176,34 +325,81 @@ a:hover {
 	}
 }
 
-	.question-list {
-	    padding: 0.5em;
-		opacity: 0.8;
-  	}
-  	.question {
-	    float: left;
-	    clear: left;
-	    text-align: right;
-	    font-weight: 700;
-		padding-bottom: 7px;
-		text-transform: uppercase;
-  	}
-  	.answer {
-		clear: both;
-		margin: 0;
-		font-weight: 300;
-		line-height: 25px;
-		padding-bottom: 30px;
-		a {
-			color: #fff;
-		}
-	}
+.text-list {
+	padding: 0.5em;
+	opacity: 0.8;
+	margin-right: 200px;
+	width: 70%;
+}
 
-	.nice-underline {
-		text-decoration: none;
-		background: linear-gradient(#fff,#fff), linear-gradient(#fff,#fff), linear-gradient(#fff,#fff);
-		background-size: 1px 1px;
-		background-repeat: no-repeat,no-repeat,repeat-x;
-		text-shadow: 0.03em 0 #000, -0.03em 0 #000, 0 0.03em #000, 0 -0.03em #000, 0.06em 0 #000, -0.06em 0 #000, 0.09em 0 #000, -0.09em 0 #000, 0.12em 0 #000, -0.12em 0 #000, 0.15em 0 #000, -0.15em 0 #000;
-		background-position: 0 94%;
+.question {
+	float: left;
+	clear: left;
+	text-align: right;
+	font-weight: 700;
+	padding-bottom: 7px;
+	text-transform: uppercase;
+}
+
+.answer {
+	clear: both;
+	margin: 0;
+	font-weight: 300;
+	line-height: 25px;
+	padding-bottom: 30px;
+	a {
+		color: #fff;
 	}
+}
+
+.nice-underline {
+	text-decoration: none;
+	background: linear-gradient(#fff,#fff), linear-gradient(#fff,#fff), linear-gradient(#fff,#fff);
+	background-size: 1px 1px;
+	background-repeat:
+		no-repeat,
+		no-repeat,
+		repeat-x;
+	text-shadow:
+		0.03em 0 #000, -0.03em 0 #000,
+		0 0.03em #000, 0 -0.03em #000,
+		0.06em 0 #000, -0.06em 0 #000,
+		0.09em 0 #000, -0.09em 0 #000,
+		0.12em 0 #000, -0.12em 0 #000,
+		0.15em 0 #000, -0.15em 0 #000;
+	background-position: 0 94%;
+}
+
+.page-case-logo {
+	width: 200px;
+	opacity: 0.8;
+	padding-bottom: 10px;
+	padding: 0.5em;
+	&.missya {
+		width: 250px;
+	}
+	&.portfolio {
+		width: 350px;
+	}
+}
+
+.project-text {
+	width: 60%;
+	margin-left: 280px;
+	margin-top: 120px;
+	opacity: 0.8;
+}
+
+.idea_development {
+	margin-top: 110px;
+	width: 60%;
+	img {
+		padding: 0 30px;
+		height: 650px;
+		margin-top: 40px;
+	}
+}
+
+.content2 {
+	margin-left: 10px;
+}
