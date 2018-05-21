@@ -235,13 +235,9 @@ label:hover :checked + .card {
 @media screen and (max-width: 992px) {
     .om-mig-text {
         padding: 20px;
-        margin-bottom: 50px;
+        margin-bottom: 150px;
     }
   }
-
-dl.resume {
-
-}
 
 dl.resume dt {
     float: left;
