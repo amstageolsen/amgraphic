@@ -248,5 +248,5 @@ dl.resume dt {
 
 dl.resume dd {
     float: left;
-    min-width: 300px;
+    width: 300px;
 }
