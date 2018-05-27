@@ -225,7 +225,7 @@ label:hover :checked + .card {
 }
 
 .om-mig-text {
-    padding: 0% 0 0 55%;
+    margin: 0% 0 0 55%;
     line-height: 28px;
     font-size: 21px;
     text-shadow: 0 0 5px #fff;
@@ -234,7 +234,7 @@ label:hover :checked + .card {
 
 @media screen and (max-width: 992px) {
     .om-mig-text {
-        padding: 20px;
+        margin: 20px;
         margin-bottom: 150px;
     }
   }
