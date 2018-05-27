@@ -225,8 +225,7 @@ label:hover :checked + .card {
 }
 
 .om-mig-text {
-    background: rgba(255,255,255,0.2);
-    color: #fff;
+    background: rgba(255,255,255,0.6);
     padding: 0% 0 0 55%;
     line-height: 28px;
     font-size: 21px;
