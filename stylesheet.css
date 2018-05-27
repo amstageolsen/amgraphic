@@ -46,6 +46,12 @@ main {
     margin: 0 auto;
 }
 
+@media screen and (max-width: 992px) {
+    main {
+        padding: 10px;
+    }
+}
+
 header {
     margin-bottom: 50px;
 }
@@ -237,7 +243,7 @@ label:hover :checked + .card {
 @media screen and (max-width: 992px) {
     .om-mig-text {
         padding: 30px;
-        margin: 20px;
+        margin: 20px 0;
         margin-bottom: 150px;
     }
   }
@@ -251,4 +257,5 @@ dl.resume dt {
 dl.resume dd {
     float: left;
     width: 300px;
+    margin: 0 0 0 20px;
 }
